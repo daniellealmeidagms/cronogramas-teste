@@ -61,7 +61,7 @@ export class TurmaService {
   async readOne({ id_turma }: findOneTurmaRequest): Promise<Turma | Error> {
     const turma = await cursor.findOne({ where: { id_turma } })
     if (!turma) {
-      return new Error("Curso não encontrado!")
+      return new Error("Turma não encontrada!")
     }
     return turma
   }
