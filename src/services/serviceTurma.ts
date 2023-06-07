@@ -40,10 +40,11 @@ export class TurmaService {
     }
 
     const turma = cursor.create({
-        fk_curso,
+        id_turma,
         data_inicio,
         data_fim,
         horas_aula_dia,
+        fk_curso,
     })
 
     await cursor.save(turma)
@@ -87,11 +88,20 @@ export class TurmaService {
     : turma.data_inicio
     turma.data_fim = data_fim ? data_fim : turma.data_fim
     turma.horas_aula_dia = horas_aula_dia ? horas_aula_dia : turma.horas_aula_dia
+}
 
-    await cursor.save(turma)
-
+async readAll() {
+    const turma = await cursor.find()
     return turma
-  }
+}
+
+async readOne({ id_turma }: findOneTurmaRequest): Promise<Turma | Error> {
+    const turma = await cursor.findOne({ where: { id_turma } })
+    if (!turma) {
+    return new Error("Turma não encontrado!")
+    }
+    return turma
+}
 
   async delete({ id_turma }: findOneTurmaRequest): Promise<Turma | Error> {
     const turma = await cursor.findOne({ where: { id_turma } })
@@ -102,3 +112,6 @@ export class TurmaService {
     return turma
   }
 }
+
+}
+
