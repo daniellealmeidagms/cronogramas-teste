@@ -47,13 +47,12 @@ export class CursoService {
     })
 
     await cursor.save(curso)
-
     return curso
   }
 
   async readAll() {
-    const cursos = await cursor.find()
-    return cursos
+    const curso = await cursor.find()
+    return curso
   }
 
   async readOne({ id_curso }: findOneCursoRequest): Promise<Curso | Error> {
@@ -73,20 +72,26 @@ export class CursoService {
   }: updateCursoRequest): Promise<Curso | Error> {
     const curso = await cursor.findOne({ where: { id_curso } })
     if (!curso) {
-      return new Error("Cliente não encontrado!")
+      return new Error("Curso não encontrado!")
     }
 
     curso.descricao_curso = descricao_curso
       ? descricao_curso
       : curso.descricao_curso
+
     curso.carga_horaria_curso = carga_horaria_curso
       ? carga_horaria_curso
       : curso.carga_horaria_curso
-    curso.modalidade = modalidade ? modalidade : curso.modalidade
-    curso.eixo = eixo ? eixo : curso.eixo
+
+    curso.modalidade = modalidade
+      ? modalidade
+      : curso.modalidade
+
+    curso.eixo = eixo 
+      ? eixo
+      : curso.eixo
 
     await cursor.save(curso)
-
     return curso
   }
 
@@ -98,5 +103,4 @@ export class CursoService {
     await cursor.delete(curso.id_curso)
     return "Curso excluído com sucesso!"
   }
-
 }

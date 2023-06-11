@@ -2,6 +2,7 @@ import { Router } from "express"
 import CursoController from "../controllers/controllerCurso"
 import TurmaController from "../controllers/controllerTurma"
 import UnidadeController from "../controllers/controllerUnidade"
+import AulaController from "../controllers/controllerAula"
 
 const rotas = Router()
 
@@ -24,10 +25,17 @@ rotas.put("/turmas/:id", new TurmaController().update)
 rotas.delete("/turmas/:id", new TurmaController().delete)
 
 //Unidade
-rotas.post("/Unidades", new UnidadeController().create)
+rotas.post("/unidades", new UnidadeController().create)
 rotas.get("/Unidades", new UnidadeController().readAll)
 rotas.get("/Unidades/:id", new UnidadeController().readOne)
 rotas.put("/Unidades/:id", new UnidadeController().update)
 rotas.delete("/Unidades/:id", new UnidadeController().delete)
+
+// Aula
+rotas.post("/aulas", new AulaController().create)
+rotas.get("/aulas", new AulaController().readAll)
+rotas.get("/aulas/:id", new AulaController().readOne)
+rotas.put("/aulas/:id", new AulaController().update)
+rotas.delete("/aulas/:id", new AulaController().delete)
 
 export default rotas

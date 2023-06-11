@@ -3,9 +3,9 @@ import {TurmaService} from "../services/serviceTurma"
 
 const service = new TurmaService()
 
-export default class CursoController {
+export default class TurmaController {
   async create(request: Request, response: Response) {
-    const {fk_curso, data_inicio , data_fim , horas_aula_dia } =
+    const {data_inicio, data_fim , horas_aula_dia , fk_curso } =
       request.body
 
     const result = await service.create({
