@@ -64,5 +64,13 @@ export default class CursoController {
     }
     return response.status(300).json(result)
   }
-  
+  async filtro(request: Request, response: Response){
+    console.log(request.params)
+    const { turno } = request.params
+    const result = await service.buscarturma({ turno })
+    if (result instanceof Error) {
+      return response.status(404).json(result.message)
+    }
+    return response.json(result)
+  }
 }

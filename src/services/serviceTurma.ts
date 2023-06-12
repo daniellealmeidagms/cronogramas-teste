@@ -27,6 +27,10 @@ type findOneTurmaRequest = {
   id_turma: string
 }
 
+type buscarTurmaRequest = {
+  turno: string
+}
+
 // 3) Funções CRUD
 
 export class TurmaService {
@@ -97,6 +101,13 @@ export class TurmaService {
       return new Error("Turma não encontrada!")
     }
     await cursor.delete(turma.id_turma)
+    return turma
+  }
+  async buscarturma({ turno}: buscarTurmaRequest): Promise<Turma[] | Error> {
+    const turma = await cursor.find({ where: { turno } })
+    if (!turma) {
+      return new Error("Turma não encontrada!")
+    }
     return turma
   }
 }

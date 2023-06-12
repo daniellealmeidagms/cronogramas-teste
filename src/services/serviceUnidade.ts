@@ -26,6 +26,12 @@ type findOneUnidadeRequest = {
   id_unidade: string
 }
 
+
+
+type buscarCursoUnidadeRequest = {
+  fk_curso: string
+}
+
 // 3) Funções CRUD
 
 export class UnidadeService {
@@ -102,4 +108,14 @@ export class UnidadeService {
     await cursor.delete(unidade.id_unidade)
     return unidade
   }
+
+
+  async buscarCurso({ fk_curso}: buscarCursoUnidadeRequest): Promise<Unidade[] | Error> {
+    const unidade = await cursor.find({ where: { fk_curso } })
+    if (!unidade) {
+      return new Error("Unidade não encontrada!")
+    }
+    return unidade
+  }
+ 
 }

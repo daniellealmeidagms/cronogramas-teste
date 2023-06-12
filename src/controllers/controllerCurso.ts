@@ -64,4 +64,15 @@ export default class CursoController {
     return response.status(300).json(result)
   }
 
+
+  async filtroModalidade(request: Request, response: Response){
+    
+    const { modalidade } = request.params
+    const result = await service.buscarModalidade({ modalidade })
+    if (result instanceof Error) {
+      return response.status(404).json(result.message)
+    }
+    return response.json(result)
+  }
+
 }

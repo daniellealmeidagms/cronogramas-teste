@@ -63,4 +63,15 @@ export default class UnidadeController {
     }
     return response.status(300).json(result)
   }
+
+  async filtro(request: Request, response: Response){
+    
+    const { fk_curso } = request.params
+    const result = await service.buscarCurso({ fk_curso })
+    if (result instanceof Error) {
+      return response.status(404).json(result.message)
+    }
+    return response.json(result)
+  }
+
 }

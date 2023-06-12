@@ -22,7 +22,7 @@ type updateAulaRequest = {
   fk_unidade: string
 }
 
-type findOneCursoRequest = {
+type findOneAulaRequest = {
   id_aula: string
 }
 
@@ -35,35 +35,35 @@ export class AulaService {
     fk_turma,
     fk_unidade,
   }: newAulaRequest): Promise<Aula | Error> {
-    if (await cursor.findOne({ where: { id_aula } })) {
+    if (await cursor.findOne({ where: { fk_turma, fk_unidade, status_aula } })) {
       return new Error("Aula já cadastrada!")
     }
 
-    const curso = cursor.create({
+    const aula = cursor.create({
       data_aula,
       status_aula,
       fk_turma,
       fk_unidade,
     })
 
-    await cursor.save(curso)
+    await cursor.save(aula)
 
-    return curso
+    return aula
   }
 
   async readAll() {
-    const cursos = await cursor.find()
-    return cursos
+    const aulas = await cursor.find()
+    return aulas
   }
 
-  async readOne({ id_aula }: findOneCursoRequest): Promise<Aula | Error> {
+  async readOne({ id_aula }: findOneAulaRequest): Promise<Aula | Error> {
     const aula = await cursor.findOne({ where: { id_aula } })
     if (!aula) {
       return new Error("Aula não encontrada!")
     }
     return aula
   }
-
+// 
   async update({
     id_aula,
     data_aula,

@@ -26,6 +26,10 @@ type findOneCursoRequest = {
   id_curso: string
 }
 
+type buscarCursoPorModalidadeRequest ={
+  modalidade: string
+}
+
 // 3) Funções CRUD
 
 export class CursoService {
@@ -98,4 +102,14 @@ export class CursoService {
     await cursor.delete(curso.id_curso)
     return "Curso excluído com sucesso!"
   }
+
+  async buscarModalidade({ modalidade }: buscarCursoPorModalidadeRequest): Promise<Curso[] | Error> {
+    const curso = await cursor.find({ where: { modalidade } })
+    if (!curso) {
+      return new Error("Curso não encontrado!")
+    }
+    return curso
+     }
+
+
 }
