@@ -39,7 +39,7 @@ export default class UnidadeController {
   }
 
   async readOneFiltro(request: Request, response: Response) {
-    const { fk_curso } = request.params
+    const { fk_curso } = request.body
     const result = await service.readOneFiltro({ fk_curso })
     if (result instanceof Error) {
       return response.status(404).json(result.message)

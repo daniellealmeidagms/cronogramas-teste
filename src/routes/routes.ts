@@ -29,16 +29,16 @@ rotas.delete("/cursos/:id_curso", new CursoController().delete)
 //Turma
 rotas.post("/turmas", new TurmaController().create)
 rotas.get("/turmas", new TurmaController().readAll)
+rotas.get("/turmas/turno", new TurmaController().readOneFiltro)
 rotas.get("/turmas/:id_turma", new TurmaController().readOne)
-rotas.get("/turmas/:turno", new TurmaController().readOneFiltro)
 rotas.put("/turmas/:id_turma", new TurmaController().update)
 rotas.delete("/turmas/:id_turma", new TurmaController().delete)
 
 //Unidade
 rotas.post("/unidades", new UnidadeController().create)
 rotas.get("/unidades", new UnidadeController().readAll)
+rotas.get("/unidades/fk_curso", new UnidadeController().readOneFiltro)
 rotas.get("/unidades/:id_unidade", new UnidadeController().readOne)
-rotas.get("/unidades/:fk_curso", new UnidadeController().readOneFiltro)
 rotas.put("/unidades/:id_unidade", new UnidadeController().update)
 rotas.delete("/unidades/:id_unidade", new UnidadeController().delete)
 
