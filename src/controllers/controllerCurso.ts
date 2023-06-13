@@ -38,6 +38,16 @@ export default class CursoController {
     return response.json(result)
   }
 
+  async readOneFiltro(request: Request, response: Response) {
+    const { modalidade } = request.params
+    const result = await service.readOneFiltro({ modalidade })
+    if (result instanceof Error) {
+      return response.status(418).json(result.message)
+    }
+    return response.json(result)
+  }
+
+
   async update(request: Request, response: Response) {
     const { id_curso } = request.params
     const { descricao_curso, carga_horaria_curso, modalidade, eixo } =

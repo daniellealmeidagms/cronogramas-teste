@@ -16,6 +16,7 @@ rotas.get("/", (request, response) => {
 rotas.post("/cursos", new CursoController().create)
 rotas.get("/cursos", new CursoController().readAll)
 rotas.get("/cursos/:id_curso", new CursoController().readOne)
+rotas.get("/cursos/:modalidade", new CursoController().readOne)
 rotas.put("/cursos/:id_curso", new CursoController().update)
 rotas.delete("/cursos/:id_curso", new CursoController().delete)
 

@@ -26,6 +26,10 @@ type findOneCursoRequest = {
   id_curso: string
 }
 
+type findOneFiltroRequest = {
+  modalidade: string
+}
+
 // 3) Funções CRUD
 
 export class CursoService {
@@ -62,6 +66,16 @@ export class CursoService {
       return new Error("Curso não encontrado!")
     }
     return curso
+  }
+
+  async readOneFiltro({
+    modalidade,
+  }: findOneFiltroRequest) {
+    const cursos = await cursor.findOne({ where: { modalidade }})
+    if (!cursos) {
+      return new Error ("Modalidade não encontrada!")
+    }
+    return cursos
   }
 
   async update({
