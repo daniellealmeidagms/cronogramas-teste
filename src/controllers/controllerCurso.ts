@@ -1,9 +1,5 @@
 import { Request, Response } from "express"
-<<<<<<< HEAD
-import {CursoService} from "../services/serviceCurso"
-=======
 import { CursoService } from "../services/serviceCurso"
->>>>>>> 8970e48737f052fcae0f597fc3b07ba04d3fe119
 
 const service = new CursoService()
 
@@ -67,10 +63,4 @@ export default class CursoController {
     }
     return response.status(300).json(result)
   }
-<<<<<<< HEAD
-  
 }
-=======
-
-}
->>>>>>> 8970e48737f052fcae0f597fc3b07ba04d3fe119

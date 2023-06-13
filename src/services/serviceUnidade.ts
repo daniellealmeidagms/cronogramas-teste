@@ -1,4 +1,4 @@
-import { AppDataSource } from "../databases/connections/data-source"
+import { AppDataSource } from "../databases/connections/datasourceDev"
 import Unidade from "../databases/models/unidade"
 
 // 1) Estabelece conexão com a tabela alvo no banco de dados através de um cursor
@@ -24,6 +24,10 @@ type updateUnidadeRequest = {
 
 type findOneUnidadeRequest = {
   id_unidade: string
+}
+
+type findCursoRequest = {
+  fk_curso: string  
 }
 
 // 3) Funções CRUD
@@ -64,6 +68,17 @@ export class UnidadeService {
       return new Error("Unidade não encontrada!")
     }
     return unidade
+  }
+
+  // Filtro por Curso
+  async filterCurso({
+    fk_curso,
+  }: findCursoRequest): Promise<Unidade | Error> {
+    const curso = await cursor.findOne({ where: { fk_curso } })
+    if (!curso) {
+      return new Error("Curso não encontrado")
+    }
+    return (curso)
   }
 
   async update({
