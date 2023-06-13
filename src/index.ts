@@ -1,6 +1,5 @@
 import { AppDataSource } from "./databases/connections/datasourceDev"
 import rotas from "./routes/routes"
-
 AppDataSource.initialize()
 
 const express = require("express")

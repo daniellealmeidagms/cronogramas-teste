@@ -63,5 +63,4 @@ export default class CursoController {
     }
     return response.status(300).json(result)
   }
-
 }

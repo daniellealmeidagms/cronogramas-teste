@@ -3,6 +3,7 @@ import CursoController from "../controllers/controllerCurso"
 import TurmaController from "../controllers/controllerTurma"
 import UnidadeController from "../controllers/controllerUnidade"
 import RecessoController from "../controllers/controllerRecesso"
+import AulaController from "../controllers/controllerAula"
 
 const rotas = Router()
 
