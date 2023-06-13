@@ -39,7 +39,7 @@ export default class CursoController {
   }
 
   async readOneFiltro(request: Request, response: Response) {
-    const { turno } = request.params
+    const { turno } = request.body
     const result = await service.readOneFiltro({ turno })
     if (result instanceof Error) {
       return response.status(404).json(result.message)
