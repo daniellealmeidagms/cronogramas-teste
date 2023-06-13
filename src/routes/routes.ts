@@ -3,6 +3,7 @@ import CursoController from "../controllers/controllerCurso"
 import TurmaController from "../controllers/controllerTurma"
 import UnidadeController from "../controllers/controllerUnidade"
 import RecessoController from "../controllers/controllerRecesso"
+import AulaController from "../controllers/controllerAula"
 
 const rotas = Router()
 
@@ -37,5 +38,12 @@ rotas.get("/recessos", new RecessoController().readAll)
 rotas.get("/recessos/:id_recesso", new RecessoController().readOne)
 rotas.put("/recessos/:id_recesso", new RecessoController().update)
 rotas.delete("/recessos/:id_recesso", new RecessoController().delete)
+
+//Aula
+rotas.post("/aulas", new AulaController().create)
+rotas.get("/aulas", new AulaController().readAll)
+rotas.get("/aulas/:id_aula", new AulaController().readOne)
+rotas.put("/aulas/:id_aula", new AulaController().update)
+rotas.delete("/aulas/:id_aula", new AulaController().delete)
 
 export default rotas
