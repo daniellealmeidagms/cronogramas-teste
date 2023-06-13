@@ -38,6 +38,20 @@ export default class UnidadeController {
     return response.json(result)
   }
 
+// Filtro por Curso
+  async filterCurso(request: Request, response: Response) {
+    const { fk_curso } = request.body
+    const resultCurso = await service.filterCurso({ fk_curso })    
+    if (resultCurso instanceof Error) {
+      return response.status(404).json(resultCurso.message)
+    }
+      return response.json(resultCurso)
+  }
+
+
+
+
+
   async update(request: Request, response: Response) {
     const { id_unidade } = request.params
     const { descricao_unidade, carga_horaria_unidade, ordem, fk_curso } =
