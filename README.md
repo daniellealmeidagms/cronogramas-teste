@@ -7,13 +7,13 @@ Aplicação backend API RESTFul destinada a cadastrar e calcular os cronogramas 
 Este sistema foi projetado para atender à demanda real do SENAC Goiás por um software que gere os calendários das turmas com as aulas previstas, respeitando a carga horária de cada curso e unidade curricular. O sistema também considera recessos e feriados, que são cadastrados pelo supervisor de ensino. Quando uma aula é cancelada pelo professor, o sistema permite que o cronograma seja recalculado e uma notificação seja enviada à supervisão. 
 
 ### Ferramentas utilizadas (Stack)
-Linguagem de Programação: Javascript (NodeJS e Typescript)
-Mapeamento Objeto-Relacional: TypeORM
-Servidor HTTP: Express
-Banco de Dados: PostgreSQL
-Controle de Versão: Git e Github
-Teste de API: Postman
-IDE: Visual Studio Code
+- Linguagem de Programação: Javascript (NodeJS e Typescript)
+- Mapeamento Objeto-Relacional: TypeORM
+- Servidor HTTP: Express
+- Banco de Dados: PostgreSQL
+- Controle de Versão: Git e Github
+- Teste de API: Postman
+- IDE: Visual Studio Code
 
 ### Equipe de desenvolvimento (Team)
 - Dhyson Moura Rodrigues (https://github.com/DhysonRodrigues)
