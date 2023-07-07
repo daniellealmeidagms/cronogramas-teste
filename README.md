@@ -13,6 +13,7 @@ Este sistema foi projetado para atender à demanda real do SENAC Goiás por um s
 - Banco de Dados: PostgreSQL
 - Controle de Versão: Git e Github
 - Teste de API: Postman
+- Deploy: Render
 - IDE: Visual Studio Code
 
 ### Equipe de desenvolvimento (Team)
